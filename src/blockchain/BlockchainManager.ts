@@ -4,7 +4,6 @@ import BlockHeader from "./BlockHeader";
 import VotesPool from "./VotesPool";
 import Validator from "./Validator";
 import Transaction from "./Transaction";
-import {HexString} from "../utils/Cryptography";
 
 export default class BlockchainManager {
     private mainchain: Blockchain;
@@ -29,8 +28,8 @@ export default class BlockchainManager {
         this.mainchain.print();
     }
 
-    public append(b: Block): boolean {
-        if (!b.isValid()) return false;
+    public append(b: Block): boolean | null {
+        if (!b.isValid()) return null;
 
         if (this.mainchain.append(b)) {
             let lastIndex = b.index + 1;
@@ -55,8 +54,11 @@ export default class BlockchainManager {
         return this.mainchain.restore();
     }
 
-    public addTransactionToPool(t: Transaction): void {
-        this.votespool.push(t);
+    public addTransactionToPool(t: Transaction): boolean {
+        if (!t.isValid()) return false;
+        if (this.findTransaction((tx) => tx.txHash === t.txHash)) return false;
+
+        return this.votespool.push(t);
     }
 
     public mine(validator: Validator): Promise<Block> {

@@ -7,10 +7,11 @@ export default class VotesPool {
         this.pool = [];
     }
 
-    public push(t: Transaction) {
-        if (this.pool.find(e => e.txHash === t.txHash)) return;
+    public push(t: Transaction): boolean {
+        if (this.pool.find(e => e.txHash === t.txHash)) return false;
 
         this.pool.push(t);
+        return true;
     }
 
     get length(): number {
