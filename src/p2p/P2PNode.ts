@@ -177,7 +177,7 @@ export default class P2PNode {
                 break;
             }
 
-            
+
         }
     }
 
