@@ -1,0 +1,46 @@
+{
+  "name": "emonopoly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/Main.ts",
+    "build": "tsc",
+    "start": "node dist/Main.js",
+    "test": "ts-node-dev node_modules/tape/bin/tape test/**/*.ts",
+    "compile-client-class": "tsc -out public/ClientPlayer.ts src/interfaces/Client.d.ts"
+  },
+  "author": "mattiapra",
+  "license": "ISC",
+  "dependencies": {
+    "consola": "^2.15.3",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "elliptic": "^6.5.4",
+    "express": "^4.18.2",
+    "get-port": "^6.1.2",
+    "inquirer": "^8.2.5",
+    "inquirer-press-to-continue": "^1.1.4",
+    "merkletreejs": "^0.3.9",
+    "socket.io": "^4.5.4",
+    "steno": "^3.0.0",
+    "ws": "^8.12.0",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/elliptic": "^6.4.14",
+    "@types/express": "^4.17.15",
+    "@types/inquirer": "^9.0.3",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/node": "^18.11.18",
+    "@types/object-hash": "^3.0.2",
+    "@types/tape": "^4.13.2",
+    "@types/ws": "^8.5.4",
+    "@types/yargs": "^17.0.19",
+    "socket.io-client": "^4.5.4",
+    "tape": "^5.6.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}
