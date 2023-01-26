@@ -2,7 +2,6 @@ import BlockHeader from "./BlockHeader";
 import Transaction from "./Transaction";
 import DB from "../io/DB";
 import Validator, {ValidatorSignature} from "./Validator";
-import {HexString} from "../utils/Cryptography";
 
 export interface SerializedBlock {
     header: BlockHeader,
